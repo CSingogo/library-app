@@ -1,0 +1,25 @@
+body{
+    margin: 0;
+    background-color: rgb(35, 30, 67);
+    display: grid;
+    grid-template-rows:20vh 60vh;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+.container{
+    border: solid 2px grey;
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    border-radius: 8px;
+    background-color: rgb(56, 48, 107);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.card {
+    border: 10px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    width: 500px;
+  }
