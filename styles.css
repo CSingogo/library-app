@@ -4,6 +4,9 @@ body{
     display: grid;
     grid-template-rows:20vh 60vh;
     grid-template-columns: 1fr 2fr 1fr;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
 .container{
@@ -31,7 +34,7 @@ body{
   }
 
   p{
-    color: blackx;
+    color: black;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    
   }
@@ -43,10 +46,19 @@ body{
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: rgb(113, 114, 115);
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
+  }
+
+  input{
+    display: block;
+    border-radius: 9px;
+    width: 240px;
+    height: 25px;
+    background-color: #FFEBCD;
+    margin: 10px;
   }
 
   #sidebar a {
@@ -73,3 +85,23 @@ body{
   #main {
     transition: margin-left .5s;
     padding: 16px;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    z-index: 2;
+}
+
+#newbtn, button{
+  background-color: #FFEBCD;
+  transform: scale(2);
+  border-radius: 10px;
+  border: 0px;
+  margin-left: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  margin-top: 90px;
+}
+
+#submit{
+  position: relative;
+  left: 80px;
+}
