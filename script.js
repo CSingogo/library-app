@@ -40,6 +40,12 @@ function displayBooks() {
         bookInfo.textContent = book.info();
         
         card.appendChild(bookInfo);
+
+        //remove button
+        var removeBtn = document.createElement("button");
+        removeBtn.innerText = 'remove book';
+        removeBtn.className = "removeBtn";
+        card.appendChild(removeBtn);
         
         // Append the card to the container
         container.appendChild(card);
@@ -63,4 +69,16 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById("sidebar").style.width = "0";
     document.getElementById("main").style.marginLeft= "0";
   }
+
+  //submit form logic to prevet usual logic
+
+  var myForm = document.getElementById('myForm');
+  var submitBtn = document.getElementById('submitBtn');
+
+  
+  myForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    addBookToLibrary();
+  });
     

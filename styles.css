@@ -68,6 +68,7 @@ body{
     color: #818181;
     display: block;
     transition: 0.3s;
+    
   }
 
   #sidebar a:hover {
@@ -90,7 +91,7 @@ body{
     z-index: 2;
 }
 
-#newbtn, button{
+#newbtn, #submitBtn{
   background-color: #FFEBCD;
   transform: scale(2);
   border-radius: 10px;
@@ -101,7 +102,13 @@ body{
   margin-top: 90px;
 }
 
-#submit{
+#submitBtn{
   position: relative;
   left: 80px;
+}
+
+.removeBtn{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  border-radius: 2px;
 }
