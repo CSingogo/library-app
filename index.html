@@ -10,6 +10,39 @@
     <div class="container">
 
     </div>
-    <script src="script.js"></script>
+
+    <div id="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <form id="myForm">
+          <label for="author">Author:</label>
+          <input type="text" id="author" name="author">
+          <br>
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title">
+          <br>
+          <label for="pages">Pages:</label>
+          <input type="text" id="pages" name="pages">
+          <br>
+          <label for="read">Read:</label>
+          <input type="text" id="read" name="read">
+          <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div id="main">
+        <button onclick="openNav()">New Book</button>
+      </div>
+
+    <script src="script.js">
+         function openNav() {
+    document.getElementById("sidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+  }
+
+  function closeNav() {
+    document.getElementById("sidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+  }
+    </script>
 </body>
 </html>
