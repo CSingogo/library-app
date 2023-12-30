@@ -32,25 +32,39 @@ var container = document.querySelector(".container");
 
 // display books function
 function displayBooks() {
-    myLibrary.forEach(book => {
-        var card = document.createElement("div");
-        card.className = "card";
-        
-        var bookInfo = document.createElement("p");
-        bookInfo.textContent = book.info();
-        
-        card.appendChild(bookInfo);
+  myLibrary.forEach((book, index) => {
+      var card = document.createElement("div");
+      card.className = "card";
 
-        //remove button
-        var removeBtn = document.createElement("button");
-        removeBtn.innerText = 'remove book';
-        removeBtn.className = "removeBtn";
-        card.appendChild(removeBtn);
-        
-        // Append the card to the container
-        container.appendChild(card);
-    });
+      var bookInfo = document.createElement("p");
+      bookInfo.textContent = book.info();
+
+      // Set data-index attribute on the card element
+      card.setAttribute('data-index', index);
+
+      card.appendChild(bookInfo);
+
+      // Remove button
+      var removeBtn = document.createElement("button");
+      removeBtn.innerText = 'remove book';
+      removeBtn.className = "removeBtn";
+      removeBtn.addEventListener('click', handleDelete);
+      card.appendChild(removeBtn);
+
+      //read button
+      var readBtn = document.createElement("button");
+      readBtn.innerText = 'read?';
+      readBtn.className = "readBtn";
+      readBtn.addEventListener('click', handleRead);
+      card.appendChild(readBtn);
+
+
+
+      // Append the card to the container
+      container.appendChild(card);
+  });
 }
+
 
 // Call displayBooks to initially display the books
 displayBooks();
@@ -81,4 +95,48 @@ document.addEventListener('DOMContentLoaded', function() {
 
     addBookToLibrary();
   });
-    
+
+  function handleDelete(event) {
+    // Retrieve the data-index attribute of the parent card element
+    var dataIndex = event.target.closest('.card').getAttribute('data-index');
+
+    // Convert dataIndex to a number (if needed)
+    dataIndex = parseInt(dataIndex, 10);
+
+    // Perform deletion based on the dataIndex
+    myLibrary.splice(dataIndex, 1);
+
+    // Clear the container and re-display the updated books
+    container.innerHTML = '';
+    displayBooks();
+}
+
+
+  function handleRead(event) {
+    // Retrieve the data-index attribute of the parent card element
+    var dataIndex = event.target.closest('.card').getAttribute('data-index');
+  
+    // Convert dataIndex to a number (if needed)
+    dataIndex = parseInt(dataIndex, 10);
+  
+    // Find the specific readBtn element within the current card
+    var readBtn = event.target.closest('.card').querySelector('.readBtn');
+  
+    // Update the button text
+    readBtn.innerText = myLibrary[dataIndex].read === 'The book has been read' ? 'read' : 'not read';
+  
+    // Update the button color
+    readBtn.style.backgroundColor = myLibrary[dataIndex].read === 'The book has been read' ? 'green' : 'red';
+
+    // Toggle the read status
+    myLibrary[dataIndex].read = myLibrary[dataIndex].read === 'The book has been read' ? 'Not read yet' : 'The book has been read';
+  
+
+  
+    // Clear the container and re-display the updated books
+    container.innerHTML = '';
+    displayBooks();
+  }
+  
+ 
+
